@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://www.devglan.com/spring-boot/spring-boot-mongodb-crud -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    <script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/amp4ads-host-v0.js"></script><script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(4).txt"></script><script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/sdk.js" async="" crossorigin="anonymous"></script><script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/osd.js"></script><script type="text/javascript" async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/analytics.js"></script><script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(5).txt" id="google_shimpl"></script><script id="facebook-jssdk" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/sdk(2).js"></script><script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/analytics.js"></script><script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-84736616-3');
+    </script>
+    <script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2256439533750580",
+            enable_page_level_ads: true
+        });
+    </script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Spring Boot MongoDB CRUD Example | DevGlan</title>
+    <meta name="robots" content="index follow">
+    <meta name="description" content="In this tutorial, we will integrate MongoDB with a spring boot application and perform different CRUD operations through Spring Data MongoRepository as well as MongoTemplate with different examples and samples.">
+    <meta name="author" content="DevGlan">
+    <link rel="stylesheet" href="./Spring Boot MongoDB CRUD Example _ DevGlan_files/font-awesome.css" type="text/css"><link rel="publisher" href="https://www.linkedin.com/in/dhiraj-ray-devglan/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Spring Boot MongoDB CRUD Example | DevGlan">
+    <meta property="og:description" content="In this tutorial, we will integrate MongoDB with a spring boot application and perform different CRUD operations through Spring Data MongoRepository as well as MongoTemplate with different examples and samples.">
+    <meta property="og:url" content="https://www.devglan.com/spring-boot/spring-boot-mongodb-crud">
+    <meta property="og:site_name" content="devglan">
+    <meta property="og:image" content="https://www.devglan.com/style/img/logo.png">
+    <meta property="article:publisher" content="https://www.facebook.com/devglanjava/">
+    <meta property="article:section" content="Java">
+    <meta property="fb:admins" content="1766542550255713">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="In this tutorial, we will integrate MongoDB with a spring boot application and perform different CRUD operations through Spring Data MongoRepository as well as MongoTemplate with different examples and samples.">
+    <meta name="twitter:title" content="Spring Boot MongoDB CRUD Example | DevGlan">
+    <meta name="twitter:site" content="@devglan">
+    <meta name="twitter:image" content="https://www.devglan.com/style/img/logo.png">
+    <meta name="twitter:creator" content="@only2dhir">
+    <!--<base href="https://www.devglan.com/">--><base href=".">
+    <meta name="google-site-verification" content="pcGimoh7HVlCiraucWwIZYVgSleXCl0y8uewA50qq9A">
+    <meta name="yandex-verification" content="a0c9dc226b7c4f05">
+    <link rel="alternate" type="application/rss+xml" title="DevGlan Feed" href="https://www.devglan.com/feed.xml">
+    <link rel="shortcut icon" href="https://www.devglan.com/style/img/favicon.ico" type="image/x-icon">
+<script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/embed.js" data-timestamp="1573220612519"></script><link rel="preload" href="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(7).txt" as="script"><script type="text/javascript" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(7).txt"></script><link rel="preload" href="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(8).txt" as="script"><script type="text/javascript" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(8).txt"></script><link rel="preload" href="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(5).txt" as="script"><script charset="utf-8" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/button.d941c9a422e2e3faf474b82a1f39e936.js"></script><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.953a2bd009935f47a8e815c3ee2bfc5a.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.3ec876f0dd63f3552e71b17b94e297ec.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.ae2c759244193264ec2a1bfbfc626d7e.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/alfie.f51946af45e0b561c60f768335c9eb79.js" async="" charset="UTF-8"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+
+<body ng-app="devStack" ng-controller="dashboardController" ng-init="initial(&#39;https://www.devglan.com/spring-boot/spring-boot-mongodb-crud&#39;, &#39;Spring Boot MongoDB CRUD Example | DevGlan&#39;, &#39;In this tutorial, we will integrate MongoDB with a spring boot application and perform different CRUD operations through Spring Data MongoRepository as well as MongoTemplate with different examples and samples.&#39;)" class="ng-scope" style="">
+<header id="header">
+    <!-- ngInclude: 'menu1.html' --><div ng-include="&#39;menu1.html&#39;" class="ng-scope"><meta name="viewport" content="width=device-width, initial-scale=1" class="ng-scope">
+<nav class="navbar navbar-expand-lg bg-mat navbar-dark navbar-fixed-top ng-scope">
+    <a class="navbar-brand" href="https://www.devglan.com/"><img src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/devglan.png" alt="Devglan"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="https://www.devglan.com/#" id="intvQuestionMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Interview Q
+                </a>
+                <div class="dropdown-menu" aria-labelledby="intvQuestionMenuLink">
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/corejava">Core Java</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/servlet">Servlet</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/spring">Spring</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/hibernate">Hibernate</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/rest">REST</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/soap">SOAP</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/interviewquestions/angularjs">Angular JS</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="https://www.devglan.com/#" id="springMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Spring Framework
+                </a>
+                <div class="dropdown-menu" aria-labelledby="springMenuLink">
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/spring-mvc-tutorial">Spring MVC</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/spring-boot-tutorial">Spring Boot</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/spring-security-tutorial">Spring Security</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/spring-cloud/spring-cloud-tutorial">Spring Cloud</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/spring-jdbc-tutorial">Spring Jdbc</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://www.devglan.com/tutorials/hibernate-tutorial">Hibernate</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="https://www.devglan.com/#" id="corejavaMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Core Java
+                </a>
+                <div class="dropdown-menu" aria-labelledby="corejavaMenuLink">
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/corejava-tutorial">Core</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/java8-tutorial">Java 8</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/java-programs">Java Program</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://www.devglan.com/tutorials/artificial-intelligence-tutorial">AI</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="https://www.devglan.com/#" id="jsMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    JS
+                </a>
+                <div class="dropdown-menu" aria-labelledby="jsMenuLink">
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/node-js-tutorial">Node Js</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/angular-tutorial">Angular Js</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/tutorials/react-js-tutorial">React Js</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://www.devglan.com/tutorials/python-tutorial">Python</a>
+            </li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="https://www.devglan.com/#" id="toolMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Crypto Tools
+                </a>
+                <div class="dropdown-menu" aria-labelledby="toolMenuLink">
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/triple-des-encrypt-decrypt">Online DES Encrypt Decrypt</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/rsa-encryption-decryption">Online RSA Encrypt Decrypt</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/hmac-sha256-online">HMAC-SHA256 Online Tool</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/aes-encryption-decryption">AES Encryption Decryption</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/bcrypt-hash-generator">Online Bcrypt Encrypt Decrypt</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/jasypt-online-encryption-decryption">Jasypt Online Encrypt Decrypt</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/xml-json-xml-conversion">Xml to Json Converter</a>
+                    <a class="dropdown-item" href="https://www.devglan.com/online-tools/base64-encode-decode">Online Base64 Encoder Decoder</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="https://www.devglan.com/donate-to-devglan">Donate</a>
+            </li>
+        </ul>
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="https://www.devglan.com/#" id="aboutMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About Us
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="aboutMenuLink">
+                        <a class="dropdown-item" href="https://www.devglan.com/about-us">About Us</a>
+                        <a class="dropdown-item" href="https://www.devglan.com/user/write-for-us">Write for Us</a>
+                        <a class="dropdown-item" href="https://www.devglan.com/user/suggest">Suggest</a>
+                        <a class="dropdown-item" href="https://www.devglan.com/user/contact-us">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="newslettermodal" class="modal fade ng-scope" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-newsletter">
+        <div class="modal-content">
+            <form class="ng-pristine ng-valid-email ng-invalid ng-invalid-required">
+                <div class="modal-header">
+                    <h4>Subscribe to our monthly newsletter</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Join our subscribers list to get the latest updates and articles delivered directly in your inbox.</p>
+                    <div class="input-group">
+                        <input type="email" class="form-control ng-pristine ng-untouched ng-valid-email ng-invalid ng-invalid-required" placeholder="Enter your email" required="" ng-model="semail">
+                        <span class="input-group-btn">
+							<input type="submit" class="btn btn-primary" ng-click="subscribe(semail)" value="Subscribe">
+						</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div></div>
+    <div class="clearfix"></div>
+</header>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-84736616-2', 'auto');
+    ga('send', 'pageview');
+</script>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/xd_arbiter(1).html" style="border: none;"></iframe></div><div></div></div></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1309443285772418";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<section class="content-container" ng-init="articleId=&#39;196&#39;" style="margin-top: 0px;">
+    <div class="col-lg-12">
+        <script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+        <!-- add-unit-top -->
+        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-2256439533750580" data-ad-slot="6955723615" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource.html"></iframe></ins></ins></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="fb-like fb_iframe_widget" data-href="https://www.facebook.com/devglanjava" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=1309443285772418&amp;container_width=955&amp;href=https%3A%2F%2Fwww.facebook.com%2Fdevglanjava&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;share=false&amp;show_faces=false&amp;size=small"><span style="vertical-align: bottom; width: 85px; height: 20px;"><iframe name="f98cd5e108323c" width="1000px" height="1000px" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/like.html" style="border: none; visibility: visible; width: 85px; height: 20px;" class=""></iframe></span></div>
+        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" style="position: static; visibility: visible; width: 122px; height: 20px;" title="Twitter Follow Button" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/follow_button.2d991e3dfc9abb2549972ce8b64c5d85.en.html" data-screen-name="only2dhir"></iframe>
+        <script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/widgets.js" charset="utf-8"></script>
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="left-blog">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h1>Spring Boot MongoDB CRUD Example</h1>
+                            <div>
+                            <img src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/qunRTdO.jpg" data-src="https://i.imgur.com/qunRTdO.jpg" class="user-pic" alt="author-image">&nbsp;&nbsp;
+                                <span class="antb">By <a href="https://www.linkedin.com/in/dhiraj-ray-devglan" target="_blank" rel="noreferrer">Dhiraj</a>,&nbsp;&nbsp;</span>
+                                <span>06 July, 2019</span>
+                                    
+                        <span class="pull-right">11K</span>
+                            </div>
+                        <hr>
+                        <div class="white-space"><p>In this tutorial, we will learn to integrate <a href="https://www.mongodb.com/" rel="nofollow">MongoDB</a> with a <a href="https://spring.io/projects/spring-boot" rel="nofollow">spring boot application</a> and perform different CRUD operations through <a href="https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/repository/MongoRepository.html" rel="nofollow">Spring Data MongoRepository</a> as well as MongoTemplate with different examples and samples. The different CRUD operations such as Create, Read, Update and Delete will be first implemented through MongoRepository and the same operations will be again implemented in MongoTemplate to provide the implementation differences between both the approaches. Also, we will have the REST endpoints exposed to perform these operations. Hence, we are going to develop an end to end spring boot MongoDB example app to perform different CRUD operations.</p>
+<script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+<!-- add-unit-top -->
+<ins class="adsbygoogle" style="display: inline-block; width: 728px; height: 0px;" data-ad-client="ca-pub-2256439533750580" data-ad-slot="6955723615" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 728px; background-color: transparent;"><ins id="aswift_2_anchor" style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 728px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(1).html"></iframe></ins></ins></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>In this tutorial, we will be developing the sample app with Spring Boot 2 i.e. 2.1.6.RELEASE and hence the MongoDB driver version will be 3+ i.e. 3.8.2</p>
+<p>We will have two entities defined as Department and Employee with one to many relationships - one department can have multiple employees. We will not be using @DBRef to visualise relational mapping kind of mapping as it does not fits well in NoSQL paradigm. You can refer <a href="https://www.compose.com/articles/mongodb-and-the-trouble-with-dbrefs/" rel="nofollow">this article</a> that provides a good reason for this. Hence, we will be using embedded relations. But our repository implementation will have a mechanism to fetch all the employees by department or fetch department by employee name.</p>
+<h2>Spring Boot MongoDB Project Setup</h2>
+<p>Let us configure our Spring Boot app to use MongoDB first.</p>
+<h3>Spring Boot MongoDB Maven Dependencies</h3>
+<p>First let us start with defining our dependencies. As we will be using Maven, below is our pom.xml.</p>
+<b>pom.xml</b>
+<pre>&lt;dependencies&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+		&lt;scope&gt;test&lt;/scope&gt;
+	&lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+&lt;build&gt;
+	&lt;plugins&gt;
+		&lt;plugin&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+		&lt;/plugin&gt;
+	&lt;/plugins&gt;
+&lt;/build&gt;
+</pre>
+<h3>Project Stucture</h3>
+<p>Below is our project structure.</p>
+<img src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/KL8HMi7.png" alt="spring-boot-mongodb-project-strct" class="img-responsive" title="spring-boot-mongodb-project-strct">
+<h3>Spring Boot MongoDB Properties Configuration</h3>
+<p>With Mongo 3.0 Java driver, <code>spring.data.mongodb.host</code> and <code>spring.data.mongodb.port</code> are not supported. In such cases, spring.data.mongodb.uri should be used to provide all of the configuration. Hence, below is our configuration file with spring.data.mongodb.uri</p>
+<b>application.properties</b>
+<pre>spring.data.mongodb.uri=mongodb://root:root@localhost:27017/test_db
+logging.level.root=DEBUG
+
+</pre>
+<p>As per our configuration, Mongo DB is running locally at default port 27017. We are using test_db database with this example and root is the username/password to access the same. If your Mongo process is not started with <code>mongod --auth</code>, then it is not required to provide the username and password.</p>
+<p>With this much configuration and <code>spring-boot-starter-data-mongodb</code> at the classpath, Spring creates an instance of <a href="https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html" rel="nofollow">MongoTemplate</a> and available for autowiring.</p><div class="google-auto-placed ap_container" style="text-align: center; width: 100%; height: auto; clear: none;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-2256439533750580" data-adsbygoogle-status="done" style="display: block; margin: auto; background-color: transparent;"><ins id="aswift_7_expand" style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 626px; background-color: transparent;"><ins id="aswift_7_anchor" style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 626px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe width="626" height="157" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_7" name="aswift_7" style="left:0;position:absolute;top:0;border:0px;width:626px;height:157px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(2).html"></iframe></ins></ins></ins></div>
+<p>If we want to customize our MongoTemplate default bean then we can go ahead with <a href="https://www.devglan.com/spring-boot/spring-boot-mongodb-configuration">java configurations for the same</a>. </p>
+<h2>MongoDB Model Implementation</h2>
+<p>As we discussed above, we have a one-many relationship between Department and Employee model, the Department.java definition will have a list of employees in it.</p>
+<b>Department.java</b>
+<pre>@Document("Department")
+public class Department {
+
+    @Id
+    private String id;
+
+    @Indexed(name = "deptName")
+    private String name;
+    private String description;
+
+    <span class="antb">//@DBRef</span>
+    private List<employee> employees;
+<span class="antb">//getters and setters</span>
+
+</employee></pre>
+<p><code>Document</code> identifies a domain object to be persisted to MongoDB.</p>
+<p><code>@Id</code> demarcates an identifier.</p>
+<b>Employee.java</b>
+<pre>@Document("Employee")
+public class Employee {
+
+    @Id
+    private String empId;
+    private String name;
+    private int age;
+    private double salary;
+
+<span class="antb">//getters and setters</span>
+
+</pre>
+<h2>Spring Data MongoRepository Implementation</h2>
+<p>Spring Data includes repository support for MongoDB and the queries are constructed automatically, based on method names similar to JPARepository. The below implementation also shows an example to execute custom query in a MongoRepository using <code>@Query</code> annotation. We have used this query to find department of an employee by an employee name.</p>
+<div class="col-md-offset-1">
+<script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+<!-- medium-rectangle -->
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 0px;" data-ad-client="ca-pub-2256439533750580" data-ad-slot="4106313937" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display: inline-table; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 300px; background-color: transparent;"><ins id="aswift_3_anchor" style="display: block; border: none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 300px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0px;width:300px;height:250px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(3).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<b>DepartmentRepository.java</b>
+<pre>@Repository
+public interface DepartmentRepository extends MongoRepository<department, string=""> {
+
+    @Query(value = "{'employees.name': ?0}", fields = "{'employees' : 0}")
+    Department findDepartmentByEmployeeName(String empName);
+
+    List<department> findDepartmentByName(String name);
+}
+</department></department,></pre>
+<p>Using <code> fields</code>, we can tell the driver about the fields that we are intrested in the result set.</p>
+<h2>Spring Boot MongoDB API implementation</h2>
+<p>Now, let us define our API implementation in a spring controller class that performs the CRUD operation. It will make use of predefined method names in MongoRepository to perform these operations. While implementing our Mongotemplate, we will be defining these implementation again with <a href="https://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/query/Query.html">Query interface</a>.</p>
+<h3>Create Operation</h3>
+<p>Create operation is a POST request and takes Department model object as a parameter and uses repository pre-defined <code>save()</code> method to persist it to Mongo DB. It returns the saved instance and hence it will have the unique id in it.</p>
+<pre>@PostMapping
+public Department createDept(@RequestBody Department department) {
+	departmentRepository.save(department);
+	return department;
+}
+</pre>
+<p>Below is the equivalent implementation using MongoTemplate for Create operation.</p>
+
+<pre>public Department save(Department department) {
+        mongoTemplate.save(department);
+        return department;
+    }
+</pre>
+
+<h3>Read Operation</h3>
+<p>Read operation is a GET request and uses <code>findAll()</code> defined in MongoRepository that returns all the documents of a collection.</p>
+<pre>@GetMapping
+public List<department> listDepts(){
+    return departmentRepository.findAll();
+ }
+</department></pre>
+
+<p>Below is the equivalent implementation using MongoTemplate for Read operation. </p>
+
+<pre>public List<department> findAll() {
+     return mongoTemplate.findAll(Department.class);
+}
+
+</department></pre>
+
+<h3>Update Operation</h3>
+<p>Update operation uses PUT request and accepts deptId as a path variable and calls the same <code>save()</code>. In this case, since the id is present in the model object, it will get updated in the DB.</p>
+<pre>@PutMapping("/{deptId}")
+    public Department updateDept(@RequestBody Department department, @PathVariable String deptId) {
+        department.setId(deptId);
+        departmentRepository.save(department);
+        return department;
+    }
+
+</pre>
+<p>Below is the equivalent implementation using MongoTemplate for update operation. </p>
+<pre>public Department update(Department department){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(department.getId()));
+        Update update = new Update();
+        update.set("name", department.getName());
+        update.set("description", department.getDescription());
+        return mongoTemplate.findAndModify(query, update, Department.class);
+    }
+</pre>
+<h3>Delete Operation</h3>
+<p>Delete operation uses delete request. Below is the controller implementation.</p>
+<pre>@DeleteMapping("/{deptId}")
+    public String deleteDept(@PathVariable String deptId) {
+        departmentRepository.deleteById(deptId);
+        return deptId;
+    }
+</pre>
+<p>Below is the equivalent implementation using MongoTemplate for delete operation. </p>
+<pre>public void deleteById(String deptId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(deptId));
+        mongoTemplate.remove(query, Department.class);
+    }
+</pre>
+<h3>Get Operation to Fetch Department By Name</h3>
+<p>It lists all the departments by name and show cases the usage of MongoRepository to query by attribute name of a model class.</p>
+<pre>@GetMapping("/{deptName}")
+    public List<department> findDeptByName(@PathVariable String deptName) {
+        return departmentRepository.findDepartmentByName(deptName);
+    }
+
+</department></pre>
+<p>Below is the equivalent implementation using MongoTemplate.</p>
+<pre>public List<department> findDepartmentByName(String deptName){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("name").is(deptName));
+        return mongoTemplate.find(query, Department.class);
+    }
+</department></pre>
+<h3>Embedded Elements Operations</h3>
+<p>It fetches parent elements by an attribute of child element. This basically shows ways to query for embedded elements in MongoDB. As implemented above, this specific implementation executes custom query in our DepartmentRepository.java</p> 
+<pre>@GetMapping("{name}/emp")
+    public Department listDept(@PathVariable String name){
+        return departmentRepository.findDepartmentByEmployeeName(name);
+    }
+</pre>
+<b>DeptRepository.java</b>
+<pre>@Repository
+public class DeptRepository {
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    public List<department> findAll() {
+        return mongoTemplate.findAll(Department.class);
+    }
+
+    public Department save(Department department) {
+        mongoTemplate.save(department);
+        return department;
+    }
+
+    public Department update(Department department){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(department.getId()));
+        Update update = new Update();
+        update.set("name", department.getName());
+        update.set("description", department.getDescription());
+        return mongoTemplate.findAndModify(query, update, Department.class);
+    }
+
+    public List<department> findDepartmentByName(String deptName){
+        Query query = new Query();
+        query.addCriteria(Criteria.where("name").is(deptName));
+        return mongoTemplate.find(query, Department.class);
+    }
+
+    public void deleteById(String deptId) {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("id").is(deptId));
+        mongoTemplate.remove(query, Department.class);
+    }
+}
+
+</department></department></pre>
+<h2>Testing Spring Boot MongoDB App</h2>
+<p>Now, our implementation is ready for testing. Let us start our SpringBootMongoApplication.java as a java application and hit our endpoints.</p>
+<p><b>Create Operation Test</b></p>
+<img src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/fZzAldi.png" alt="spring-boot-mongodb-post-request" class="img-responsive" title="spring-boot-mongodb-post-request">
+<b>POST Request Payload</b>
+<pre>{
+	"name":"Devglan",
+	"description": "devglan",
+	"employees":[
+		{
+		"empId":"CET02",
+ 		"age":23,
+		"salary":542452
+		}
+		
+	]
+}
+</pre>
+<p>Fetch Department By Emp Name</p>
+<img src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/6o7L27h.png" alt="spring-boot-mongodb-get-request" class="img-responsive" title="spring-boot-mongodb-get-request">
+<h2>Conclusion</h2>
+<p>In this tutorial, we learnt about creating a spring boot app with MongoDB and exposed some REST endpoints for different CRUD operations. We integrated MongoRepository and MongoTemplate too. To add security in this application, you can follow <a href="https://www.devglan.com/spring-security/spring-webflux-rest-authentication" rel="nofollow">this article</a>.</p></div>
+                        <div class="row rect-border">
+                            <h4>If You Appreciate This, You Can Consider:</h4>
+                            <ul class="free-list">
+                                <li>
+                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class="ng-pristine ng-valid">
+                                        <input type="hidden" name="cmd" value="_s-xclick">
+                                        <input type="hidden" name="hosted_button_id" value="FZ7L5864RYNWC">
+                                        <input type="image" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/btn_donate_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                                        <img alt="" border="0" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/pixel.gif" width="1" height="1">
+                                    </form></li>
+                                <li> Like us at:
+                                    <a href="https://goo.gl/YtUNxk" target="_blank">
+                                        <img width="32" height="32" title="Facebook" alt="Facebook" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/fb1.png" data-src="style/img/fb1.png">
+                                    </a>
+                                    or follow us at
+                                    <a href="https://goo.gl/sLbAWK" target="_blank">
+                                        <img width="32" height="32" title="Twitter" alt="Twitter" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/tw1.png" data-src="style/img/tw1.png">
+                                    </a>
+                                </li>
+                                <li> Share this article on social media or with your teammates.</li>
+                                <li class="has-error">We are thankful for your never ending support.</li>
+                            </ul>
+                        </div>
+                            <script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+                            <ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-2256439533750580" data-ad-slot="5151023636" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent;"><iframe width="1200" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;border:0px;width:1200px;height:600px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(4).html"></iframe></ins></ins></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <div>
+                                <h4>About The Author</h4>
+                                <div class="author-bio">
+                                    <div class="author-image">
+                                        <img class="author-pic" title="author-image" alt="author-image" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/qunRTdO.jpg" data-src="https://i.imgur.com/qunRTdO.jpg">
+                                    </div>
+                                    <div class="author-bio-text">
+                                        <p>I am an energetic professional who enjoys the challenges involved in working with people and resolving real-time problems. Technical expertise in building highly scalable, distributed and self-healing cloud applications.
+Technical Skills: Java/J2EE, Spring Framework, Hibernate, Angular, Reactive Programming, Microservices, Rest APIs, Kafka, ELK, etc. </p>
+                                    </div>
+                                </div>
+                           </div>
+                            <h4>Further Reading on Spring Boot</h4>
+                                    <p><a href="https://www.devglan.com/spring-boot/spring-data-mongodb-queries" class="topic">1 Spring Data Mongodb Queries</a></p>
+                                    <p><a href="https://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication" class="topic">2 Spring Boot Security Rest Basic Authentication</a></p>
+                                    <p><a href="https://www.devglan.com/hibernate/hibernate-criteria-tutorial" class="topic">3 Hibernate Criteria Tutorial</a></p>
+                                    <p><a href="https://www.devglan.com/spring-boot/spring-boot-multiple-database-configuration" class="topic">4 Spring Boot Multiple Database Configuration</a></p>
+                                    <p><a href="https://www.devglan.com/apache-kafka/spring-boot-apache-kafka" class="topic">5 Spring Boot Apache Kafka</a></p>
+                                    <p><a href="https://www.devglan.com/spring-security/jwt-role-based-authorization" class="topic">6 Jwt Role Based Authorization</a></p>
+                           
+                            <div id="disqus_thread"><iframe id="dsq-app1787" name="dsq-app1787" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" sandbox="allow-forms allow-popups allow-same-origin allow-scripts" width="100%" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(5).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 575px !important;"></iframe><iframe id="dsq-app1784" name="dsq-app1784" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(6).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 902px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+                            <script>
+                                var disqus_config = function () {
+                                    this.page.url =  'https://www.devglan.com/spring-boot/spring-boot-mongodb-crud';
+                                    this.page.identifier = 'https://www.devglan.com/spring-boot/spring-boot-mongodb-crud';
+                                };
+                                (function () {
+                                    var d = document, s = d.createElement('script');
+
+                                    s.src = '//www-devglan-com.disqus.com/embed.js';
+
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+                                powered by Disqus.</a></noscript>
+                            <div class="clearfix"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 row-off d-sm-none d-md-block">
+                <div class="row">
+                    <script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+                    <!-- large-rect -->
+                    <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-2256439533750580" data-ad-slot="7126457467" data-adsbygoogle-status="done"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><ins id="aswift_5_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:336px;background-color:transparent;"><iframe width="336" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;border:0px;width:336px;height:280px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(7).html"></iframe></ins></ins></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <div class="right-blog">
+                        <div>
+                            <div><h3>Recommended</h3></div>
+                            <ul>
+                                    <li><a href="https://www.devglan.com/spring-boot/spring-data-mongodb-queries">Spring Data Mongodb Queries</a></li>
+                                    <li><a href="https://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication">Spring Boot Security Rest Basic Authentication</a></li>
+                                    <li><a href="https://www.devglan.com/hibernate/hibernate-criteria-tutorial">Hibernate Criteria Tutorial</a></li>
+                                    <li><a href="https://www.devglan.com/spring-boot/spring-boot-multiple-database-configuration">Spring Boot Multiple Database Configuration</a></li>
+                                    <li><a href="https://www.devglan.com/apache-kafka/spring-boot-apache-kafka">Spring Boot Apache Kafka</a></li>
+                                    <li><a href="https://www.devglan.com/spring-security/jwt-role-based-authorization">Jwt Role Based Authorization</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="google_ad" style="position: fixed; width: auto; top: 20px;">
+                    <script async="" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/f(6).txt"></script>
+                    <!-- ad-unit-right -->
+                    <ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-2256439533750580" data-ad-slot="5806293478" data-adsbygoogle-status="done"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_6_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_6" name="aswift_6" style="left:0;position:absolute;top:0;border:0px;width:300px;height:600px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(8).html"></iframe></ins></ins></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <div id="downloadModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Download the Source</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" ng-submit="reset()">
+                        <fieldset>
+                            <p ng-show="validEmail" class="text-center has-error ng-hide">Download link has been sent to your email. Be sure to check your spam folder.</p>
+                            <p ng-show="error" class="has-error ng-binding ng-hide"></p>
+
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <div class="controls">
+                                    <input id="name" class="form-control input-large ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text" placeholder="name" ng-model="userName" required="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <div class="controls">
+                                    <input id="email" class="form-control input-large ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text" placeholder="email" ng-model="downloadEmail" required="">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" ng-click="downloadSource(&#39;spring-boot-mongodb-crud&#39;)">Get Source</button>
+                        <button type="button" class="btn btn-danger ng-hide" data-dismiss="modal" ng-show="showCloseButton">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- ngInclude: 'social.html' --><div class="sticky-container ng-scope" ng-include="&#39;social.html&#39;"><ul class="sticky ng-scope">
+    <li>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.devglan.com/spring-boot/spring-boot-mongodb-crud" onclick="window.open(this.href,  &#39;_blank&#39;, &#39;toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=500,height=400&#39;); return false;">
+            <img width="32" height="32" title="Facebook" alt="Facebook" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/fb1.png" data-src="style/img/fb1.png">Facebook</a>
+    </li>
+    <li>
+        <a href="https://twitter.com/intent/tweet?text=https://www.devglan.com/spring-boot/spring-boot-mongodb-crud" onclick="window.open(this.href,  &#39;_blank&#39;, &#39;toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=500,height=400&#39;); return false;">
+            <img width="32" height="32" title="Twitter" alt="Twitter" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/tw1.png" data-src="style/img/tw1.png">
+            Twitter</a>
+    </li>
+    <li>
+        <a href="http://pinterest.com/pin/create/button/?url=https://www.devglan.com/spring-boot/spring-boot-mongodb-crud&amp;media=http://www.devglan.com/style/img/logo.png&amp;description=In%20this%20tutorial,%20we%20will%20integrate%20MongoDB%20with%20a%20spring%20boot%20application%20and%20perform%20different%20CRUD%20operations%20through%20Spring%20Data%20MongoRepository%20as%20well%20as%20MongoTemplate%20with%20different%20examples%20and%20samples." onclick="window.open(this.href,  &#39;_blank&#39;, &#39;toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=500,height=400&#39;); return false;">
+            <img width="32" height="32" title="Pinterest" alt="Pinterest" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/pin1.png" data-src="style/img/pin1.png">
+            Pinterest</a>
+    </li>
+    <li>
+        <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.devglan.com/spring-boot/spring-boot-mongodb-crud&amp;title=Spring%20Boot%20MongoDB%20CRUD%20Example%20|%20DevGlan&amp;summary=In%20this%20tutorial,%20we%20will%20integrate%20MongoDB%20with%20a%20spring%20boot%20application%20and%20perform%20different%20CRUD%20operations%20through%20Spring%20Data%20MongoRepository%20as%20well%20as%20MongoTemplate%20with%20different%20examples%20and%20samples." onclick="window.open(this.href,  &#39;_blank&#39;, &#39;toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=500,height=400&#39;); return false;">
+            <img width="32" height="32" title="Linkedin" alt="Linkedin" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/li1.png" data-src="style/img/li1.png">
+            Linkedin</a>
+    </li>
+    <li>
+        <a href="http://tumblr.com/share/link?url=https://www.devglan.com/spring-boot/spring-boot-mongodb-crud" onclick="window.open(this.href,  &#39;_blank&#39;, &#39;toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=500,height=400&#39;); return false;">
+            <img width="32" height="32" title="Tumblr" alt="Tumblr" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/tm1.png" data-src="style/img/tm1.png">
+            Tumblr</a>
+    </li>
+    <li>
+        <a href="http://www.reddit.com/submit?url=https://www.devglan.com/spring-boot/spring-boot-mongodb-crud&amp;title=Spring%20Boot%20MongoDB%20CRUD%20Example%20|%20DevGlan&amp;text=In%20this%20tutorial,%20we%20will%20integrate%20MongoDB%20with%20a%20spring%20boot%20application%20and%20perform%20different%20CRUD%20operations%20through%20Spring%20Data%20MongoRepository%20as%20well%20as%20MongoTemplate%20with%20different%20examples%20and%20samples." onclick="window.open(this.href,  &#39;_blank&#39;, &#39;toolbar=yes,scrollbars=yes,resizable=yes,top=200,left=500,width=500,height=400&#39;); return false;">
+            <img width="32" height="32" title="Reddit" alt="Reddit" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/reddit.png" data-src="style/img/reddit.png">
+            Reddit</a>
+    </li>
+</ul>
+<script class="ng-scope">
+    function init() {
+        var imgDefer = document.getElementsByTagName('img');
+        for (var i=0; i<imgDefer.length; i++) {
+            if(imgDefer[i].getAttribute('data-src')) {
+                imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+            } } }
+    window.onload = init;
+</script>
+</div>
+</section>
+<footer>
+    <div class="copyright-policy">
+        <p>©2019, DevGlan. All Rights Reserved.&nbsp;&nbsp;<a href="https://www.devglan.com/privacy">Privacy Policy</a></p>
+        <p>Contact us: <a href="mailto:dhiraj@devglan.com">dhiraj@devglan.com</a></p>
+    </div>
+</footer>
+<link rel="stylesheet" href="./Spring Boot MongoDB CRUD Example _ DevGlan_files/style.css"><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(9).html"></iframe></ins></ins></ins>
+<link rel="stylesheet" href="./Spring Boot MongoDB CRUD Example _ DevGlan_files/bootstrap.min.css">
+<script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/jquery.min.js"></script>
+<script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/bootstrap.min.js" async="" defer=""></script>
+<script type="text/javascript" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/angular.min.js"></script>
+<script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/angular-sanitize.min.js"></script>
+<script>var App = angular.module("devStack", ["ngSanitize"]);</script>
+<script src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/dashboard_backup.js"></script>
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/widget_iframe.2d991e3dfc9abb2549972ce8b64c5d85.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="google_osd_static_frame_5529678430378" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(10).html"></iframe><iframe style="display: none;" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/saved_resource(11).html"></iframe></body><iframe id="google_esf" name="google_esf" src="./Spring Boot MongoDB CRUD Example _ DevGlan_files/zrt_lookup.html" data-ad-client="ca-pub-2256439533750580" style="display: none;"></iframe></html>
